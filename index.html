@@ -6,6 +6,59 @@
     <title>UD AI STUDIO Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+
+    <style>
+        /* This ensures the df-messenger is positioned relative to the viewport */
+        df-messenger {
+            z-index: 999;
+            position: fixed;
+            --df-messenger-font-color: #000;
+            --df-messenger-font-family: 'Google Sans', sans-serif; /* Added sans-serif as fallback */
+            --df-messenger-chat-background: #f3f6fc;
+            --df-messenger-message-user-background: #d3e3fd;
+            --df-messenger-message-bot-background: #fff;
+            /* Adjust positioning to be near WhatsApp button */
+            bottom: 16px; /* Same as WhatsApp button */
+            right: 80px; /* Adjust this value to place it next to WhatsApp.
+                            Approx. WhatsApp button width (60px) + margin (4px) = 64px,
+                            so 16px (WhatsApp right) + 64px = 80px or more. Adjust as needed. */
+        }
+
+        /* Adjust WhatsApp button style to allow space for the chatbot */
+        .whatsapp-btn {
+            z-index: 1000; /* Make sure WhatsApp is above the chatbot if they overlap */
+            position: fixed;
+            bottom: 16px;
+            right: 16px; /* Original position of WhatsApp */
+            /* Ensure WhatsApp button has a defined size if it influences spacing */
+            width: 56px; /* Example size, adjust based on your .whatsapp-btn styles */
+            height: 56px; /* Example size */
+            display: flex; /* Helps center the icon */
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background-color: #25D366; /* WhatsApp green */
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Adjust styling for back-to-top if it's also fixed and might overlap */
+        .back-to-top {
+            z-index: 998; /* Lower than df-messenger and whatsapp-btn */
+            position: fixed;
+            bottom: 80px; /* Adjust if it clashes with df-messenger */
+            right: 16px;
+        }
+
+        /* Basic adjustments for theme toggle if needed, ensure it doesn't clash */
+        .theme-toggle {
+            z-index: 1001; /* Highest to ensure it's always clickable */
+        }
+    </style>
 </head>
 <body>
     <div class="bg-animation">
@@ -165,7 +218,7 @@
                             <br>
                             -Delete: Securely remove records when a vehicle is decommissioned or ownership is transferred out of the system's scope.
                         </span>
-                        <a href="#" class="read-more-btn">See More</a>                        
+                        <a href="#" class="read-more-btn">See More</a>
                     </p>
                     <a href="https://nilushkaai.github.io/vehicle-registration-frontend-new/" target="_blank" class="portfolio-btn"><span>Get Now</span></a>
                 </div>
@@ -225,7 +278,7 @@
             <div class="about-content">
                 <h3 class="about-title">Nilushka Rathugama</h3>
                 <p class="about-subtitle">UD AI STUDIO</p>
-                
+
                 <div class="info-section">
                     <h4 class="info-title">PERSONAL INFORMATION</h4>
                     <div class="info-item">Name - Nilushka Rathugama</div>
@@ -235,7 +288,7 @@
                     <div class="info-item">Language - Sinhala/English</div>
                     <div class="info-item">Job - Engineer</div>
                 </div>
-                
+
                 <div class="info-section">
                     <h4 class="info-title">EXPERIENCE</h4>
                     <div class="info-item">UD AI STUDIO</div>
@@ -245,7 +298,7 @@
                     <div class="info-item">PROMPT ENGINEERING</div>
                     <div class="info-item">CHATBOT</div>
                 </div>
-                
+
                 <div class="info-section">
                     <h4 class="info-title">PRO SKILLS</h4>
                     <div class="skills-container">
@@ -261,16 +314,16 @@
                         <div class="skill">FLOW</div>
                     </div>
                 </div>
-                
+
                 <a href="www.example.com" target="_blank" class="cv-btn">View Full CV</a>
-                
+
                 <div class="social-links">
                     <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
                     <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                     <a href="#" class="social-link"><i class="fas fa-globe"></i></a>
                 </div>
-                
+
                 <div class="footer">
                     Design by : UD AI Studio Co.™ UD AI STUDIO | © 2025 | Sri Lanka.
                 </div>
@@ -282,10 +335,21 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <df-messenger
+        project-id="gen-lang-client-0760477884"
+        agent-id="5ea96151-0c64-40ce-9c00-d68b0a0bc551"
+        language-code="en"
+        max-query-length="-1">
+        <df-messenger-chat-bubble
+            chat-title="UD AI Agent">
+        </df-messenger-chat-bubble>
+    </df-messenger>
+
     <div class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
     </div>
 
     <script src="script.js"></script>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
 </body>
 </html>
