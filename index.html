@@ -10,20 +10,23 @@
     <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
 
     <style>
-        /* This ensures the df-messenger is positioned relative to the viewport */
         df-messenger {
-            z-index: 999;
-            position: fixed;
+            z-index: 999; /* Ensures the chatbot is on top of other content */
+            position: fixed; /* Keeps the chatbot in a fixed position on the screen */
             --df-messenger-font-color: #000;
             --df-messenger-font-family: 'Google Sans', sans-serif; /* Added sans-serif as fallback */
             --df-messenger-chat-background: #f3f6fc;
             --df-messenger-message-user-background: #d3e3fd;
             --df-messenger-message-bot-background: #fff;
-            /* Adjust positioning to be near WhatsApp button */
-            bottom: 16px; /* Same as WhatsApp button */
+            bottom: 16px;
             right: 80px; /* Adjust this value to place it next to WhatsApp.
                             Approx. WhatsApp button width (60px) + margin (4px) = 64px,
                             so 16px (WhatsApp right) + 64px = 80px or more. Adjust as needed. */
+
+            /* --- CHATBOT WINDOW SIZE ADJUSTMENTS --- */
+            --df-messenger-chat-window-width: 350px; /* Example: set chat window width */
+            --df-messenger-chat-window-height: 450px; /* Example: set chat window height */
+            /* -------------------------------------- */
         }
 
         /* Adjust WhatsApp button style to allow space for the chatbot */
@@ -58,6 +61,14 @@
         .theme-toggle {
             z-index: 1001; /* Highest to ensure it's always clickable */
         }
+
+        /* Existing styles from your original code that might affect layout */
+        /* (Add any other global styles you have in styles.css here if they affect fixed elements) */
+        /* For example, if you have a default body margin that pushes things */
+        body {
+            margin: 0; /* Ensure no default body margin is pushing fixed elements */
+        }
+
     </style>
 </head>
 <body>
